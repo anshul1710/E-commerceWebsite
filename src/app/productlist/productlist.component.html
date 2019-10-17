@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="row " style="width: 100%;margin-bottom: 50px; margin-top: 30px;">
+  <div class="col-sm-3 mr-5 ml-5 mt-3" style="border: 1px solid lightgrey; border-radius:1rem ;height: 320px">
+    <h3 style="margin-left: 100px;margin-top: 20px">Price</h3>
+    <div class="row mb-4 mt-4">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" min="0" max="1000" (change)="getProdByCatAndPrice(0,1000)">
+      </div>
+      <div class="col-7">
+        0- 1000
+      </div>
+    </div>
+    <div class="row mb-4 mt-2">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" min="1000" max="10000" (change)="getProdByCatAndPrice(1000,10000)">
+      </div>
+      <div class="col-7">
+        1,000-10,000
+      </div>
+    </div>
+    <div class="row mb-4 mt-2">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" min="10000" max="30000" (change)="getProdByCatAndPrice(10000,30000)">
+      </div>
+      <div class="col-7">
+        10,000-30,000
+      </div>
+    </div>
+    <div class="row mb-4 mt-2">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" min="30000" max="80000" (change)="getProdByCatAndPrice(30000,80000)">
+      </div>
+      <div class="col-7">
+        30,000-80,000
+      </div>
+    </div>
+    <div class="row mb-4 mt-2">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter"  min="80000" max="100000" (change)="getProdByCatAndPrice(80000,100000)">
+      </div>
+      <div class="col-7">
+         80,000-100,000
+      </div>
+    </div>
+    </div>
+  <div class="d-flex flex-wrap col-sm-8 mt-3" style="border:  1px solid lightgray; border-radius:1rem">
+    <div *ngFor="let s of products"  style="margin-top: 30px;margin-left: 30px ;margin-bottom:30px" >
+      <img  style="height: 150px; width:auto" src="{{s.image}}" >
+      <hr>
+      <div>
+        <h4 class="card-title">{{s.name}}</h4>
+        <button class="btn btn-info btn-sm" (click)="addThisToCart(s.prductId)">Add to cart</button>&nbsp;&nbsp;
+        <button class="btn btn-info btn-sm" (click)="getProd(s.productId)">View Product</button>
+        <br>
+        <button class="btn btn-warning btn-sm mt-2" (click)="editProduct(s)" *ngIf="loginService.isUserLoggedIn() && this.role=='Admin'">Edit Product</button>
+        <button class="btn btn-danger btn-sm mt-2 ml-2" (click)="removeProduct(s.productId)" *ngIf="loginService.isUserLoggedIn() && this.role=='Admin'">Remove Product</button>
+
+      </div>
+    </div>
+  </div>
+</div>

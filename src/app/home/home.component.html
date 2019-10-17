@@ -1,25 +1,62 @@
 <app-navbar></app-navbar>
-<nav class="navbar navbar-expand-sm  navbar-light secondNav">
-  <ul class="navbar-nav">
-    <li class="nav-item active listyle">
-      <a class="nav-link nava" href="#">Home</a>
-    </li>
-    <li class="nav-item active listyle">
-      <a class="nav-link nava" href="/home">Electronics</a>
-    </li>
-    <li class="nav-item active listyle">
-      <a class="nav-link nava" href="#">Clothing</a>
-    </li>
-    <li class="nav-item active listyle">
-      <a class="nav-link nava" href="#">Footwear</a>
-    </li>
-    <li class="nav-item active listyle">
-      <a class="nav-link nava" href="#">Books</a>
-    </li>
-
-  </ul>
-</nav>
 <br>
+<div class="row " style="width: 100%;margin-bottom: 50px;">
+  <div class="col-sm-3 mr-5 ml-5 mt-3" style="border: 1px solid lightgrey; border-radius:1rem ;height: 300px">
+    <h3 style="margin-left: 100px">Price</h3>
+    <div class="row mb-4 mt-4">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" (change)="getProdByPrice(0,1000)">
+      </div>
+      <div class="col-7">
+        0 - 1000
+      </div>
+    </div>
+    <div class="row mb-4 mt-2">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" (change)="getProdByPrice(1001,3000)">
+      </div>
+      <div class="col-7">
+        1,000-3,000
+      </div>
+    </div>
+    <div class="row mb-4 mt-2">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" (change)="getProdByPrice(3001,5000)">
+      </div>
+      <div class="col-7">
+        3,000-5,000
+      </div>
+    </div>
+    <div class="row mb-4 mt-2">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" (change)="getProdByPrice(5001,10000)">
+      </div>
+      <div class="col-7">
+        5,000-10,000
+      </div>
+    </div>
+    <div class="row mb-4 mt-2">
+      <div class="col-2 ml-5 mr-1">
+        <input type="radio" class="" name="filter" (change)="getProdByPrice(10000,90000)">
+      </div>
+      <div class="col-7">
+        Above 10,000
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex flex-wrap col-8 mt-3" style="border:  1px solid lightgray; border-radius:1rem">
+    <div *ngFor="let s of products"  style="margin-top: 30px;margin-left: 30px ;margin-bottom:30px" >
+      <img  style="height: 150px; width:auto" src="{{s.image}}" >
+      <hr>
+      <div>
+        <h4 class="card-title">{{s.Name}}</h4>
+        <button class="btn btn-info btn-sm" (click)="addThisToCart(s.productId)">Add to cart</button>&nbsp;&nbsp;
+        <button class="btn btn-info btn-sm" (click)="getProd(s.productId)">See Product</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-fluid" style="margin: 0px">
 <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
@@ -31,19 +68,19 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./assets/image/image4.jpeg" width="1100" height="100">
+      <img src="./assets/images/image4.jpeg" width="1100" height="100">
       <div class="carousel-caption">
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./assets/image/image2.jpeg"width="1100" height="500">
+      <img src="./assets/images/image2.jpeg"width="1100" height="500">
 
     </div>
     <div class="carousel-item">
-      <img src="./assets/image/image3.jpeg" width="1100" height="500">
+      <img src="./assets/images/image3.jpeg" width="1100" height="500">
     </div>
     <div class="carousel-item">
-      <img src="./assets/image/image5.jpeg" width="1100" height="500">
+      <img src="./assets/images/image5.jpeg" width="1100" height="500">
     </div>
   </div>
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -54,4 +91,6 @@
   </a>
 </div>
 </div>
+
 <router-outlet></router-outlet>
+<a routerLink="/test">test</a>
