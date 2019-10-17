@@ -53,5 +53,9 @@ export class ProductsServieService {
     const headers = new HttpHeaders( {Authorization: sessionStorage.getItem('basicAuth')});
     return this.httpClient.get(this.url + '/product-del/' + id, {headers});
   }
+  getSearchedResult(searchedItem) {
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa('anshul@gmail.com' + ':' + 'anshul') });
+    return this.httpClient.get(this.url + '/search/' + searchedItem,{headers});
+  }
 }
 

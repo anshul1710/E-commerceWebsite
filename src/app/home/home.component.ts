@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
   constructor(private route: ActivatedRoute, private router: Router , private http: ProductsServieService, private cart: CartserviceService) { }
-private products : any;
+private products: any;
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
         this.http.getAllProducts().subscribe(data => {

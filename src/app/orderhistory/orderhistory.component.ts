@@ -10,6 +10,7 @@ import {CartserviceService} from '../cartservice.service';
 export class OrderhistoryComponent implements OnInit {
 
   private OrderHistory;
+  products: any;
   constructor(private cartService: CartserviceService, private router: Router) { }
 
   ngOnInit() {

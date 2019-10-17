@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger col-sm-12" style="margin:0;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark col-sm-12" style="margin:0;">
   <div class=" navbar-nav" id="navb">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" style="color: antiquewhite" routerLink="/home">ShopeToday</a>
+        <a class="nav-link" style="color: antiquewhite" href="home">ShopeToday</a>
     </ul>
-    <form class="form-inline my-5 my-lg-0"style="margin-left: 260px">
-      <input class="form-control mr-sm-2" type="text" size="50" placeholder="Search">
-      <button class="btn btn-secondary my-1 my-sm-0" type="button">Search</button>
+    <form class="form-inline my-5 my-lg-0"style="margin-left: 160px">
+      <input class="form-control mr-sm-2" type="text" size="50" placeholder="Search" [(ngModel)]="searchedItem" [ngModelOptions]="{standalone: true}">
+      <button class="btn btn-secondary my-1 my-sm-0" type="button" (click)="searchOnClick()">Search</button>
     </form>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown"  *ngIf="!loginService.isUserLoggedIn()">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbardrop">
-          My Account</a>
-        <div class="dropdown-menu bg-danger">
-          <a class="nav-link bg-danger dropdown-item" href="login" routerLink="/login">Login</a><hr>
-          <a class="nav-link bg-danger dropdown-item" href="signup" routerLink="/signup">Sign Up</a><hr>
+        <a class="nav-link dropdown-toggle ml-1" data-toggle="dropdown" href="#" id="navbardrop">
+        Get Started</a>
+        <div class="dropdown-menu bg-dark">
+          <a class="nav-link bg-dark dropdown-item" href="login" routerLink="/login">Login</a>
+          <a class="nav-link bg-dark dropdown-item" href="signup" routerLink="/signup">Sign Up</a>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="" routerLink="/cart">Cart</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="" routerLink="/orderHistory">OrderHistory</a>
+        <a class="nav-link" href="orderHistory">OrderHistory</a>
       </li>
       <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
-        <a class="nav-link" href="" routerLink="/logout">Logout</a>
+        <a class="nav-link" href="myaccount">My Account</a>
+      </li>
+      <li class="nav-item"  *ngIf="loginService.isUserLoggedIn()">
+        <a class="nav-link" href="logout">Logout</a>
       </li>
       <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && this.role=='Admin'">
-        <a class="nav-link" routerLink="/addproduct">Add Product</a>
+        <a class="nav-link" href="addproduct">Add Product</a>
       </li>
     </ul>
   </div>

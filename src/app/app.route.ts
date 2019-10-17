@@ -3,7 +3,6 @@ import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
 import {HomeComponent} from './home/home.component';
 import {CartComponent} from './cart/cart.component';
-import {TestComponent} from './test/test.component';
 import {ProductdetailComponent} from './productdetail/productdetail.component';
 import {ProductlistComponent} from './productlist/productlist.component';
 import {LogoutComponent} from './logout/logout.component';
@@ -20,11 +19,10 @@ export const MAIN_ROUTES: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'home', component: HomeComponent},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
-  {path: 'test', component: TestComponent},
   {path: 'productdetail/:id', component: ProductdetailComponent},
   {path: 'productlist/:category' , component: ProductlistComponent},
   {path: 'productlist', component: ProductlistComponent},
-  {path: 'myaccount' , component: MyaccountComponent},
+  {path: 'myaccount' , component: MyaccountComponent, canActivate: [AuthGuardService]},
   {path: 'orderHistory' , component: OrderhistoryComponent, canActivate: [AuthGuardService]},
   { path: 'addproduct', component: AddproductComponent, canActivate: [AuthGuardService]},
   { path: 'editproduct/:id', component: EditproductComponent, canActivate: [AuthGuardService]},
